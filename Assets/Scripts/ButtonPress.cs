@@ -6,6 +6,7 @@ public class ButtonPress : MonoBehaviour {
 	GameObject menu;
 
 	public void BackToMenu(){
+		Time.timeScale = 1f;
 		Application.LoadLevel ("MainMenu");
 	}
 	
@@ -29,6 +30,8 @@ public class ButtonPress : MonoBehaviour {
 	void Start(){
 		menu = GameObject.Find("PauseMenu");
 		menu.SetActive (false);
+		paused = false;
+		Time.timeScale = 1f;
 	}
 
 	void Update(){

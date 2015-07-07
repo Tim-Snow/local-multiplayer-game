@@ -3,25 +3,23 @@ using System.Collections;
 
 public class GameLogic : MonoBehaviour {
 
+	GameObject[] players;
+
 	void Start () {
-		for (int i = 1; i <= CharSelect.enteredPlayers.Count; i++) {
-			if (CharSelect.enteredPlayers [i] == true) {
+		players = new GameObject[CharSelect.enteredPlayers.Count];
+
+		for (int i = 1; i <= players.Length; i++) {
+			if (CharSelect.enteredPlayers[i].isEntered) {
+				enteredPlayerDetails thePlayer = CharSelect.enteredPlayers[i];
+
 				var spawnPoint = new Vector2 (2 + i * 2, 0);
 
-				GameObject player 					= Instantiate (Resources.Load ("Player", typeof(GameObject)), spawnPoint, Quaternion.identity) as GameObject;
+				players[i] = Instantiate (Resources.Load ("Player", typeof(GameObject)), spawnPoint, Quaternion.identity) as GameObject;
+				players[i].GetComponent<Renderer>().material.color = thePlayer.selectedColor;
 
-				if(i == 2)
-					player.GetComponent<Renderer>().material.color = Color.magenta;
-
-				if(i == 3)
-					player.GetComponent<Renderer>().material.color = Color.yellow;
-
-				if(i == 4)
-					player.GetComponent<Renderer>().material.color = Color.red;
-
-				Player playerScript 				= player.GetComponent<Player> ();
-				Controller controllerScript 		= player.GetComponent<Controller> ();
-				controllerScript.collider 			= player.AddComponent<BoxCollider2D> ();
+				Player playerScript 		= players[i].GetComponent<Player> ();
+				Controller controllerScript = players[i].GetComponent<Controller> ();
+				controllerScript.collider 	= players[i].AddComponent<BoxCollider2D> ();
 
 				playerScript.joystickNumber 			= i;
 				playerScript.timeToJumpApex 			= 0.3f;
@@ -40,8 +38,6 @@ public class GameLogic : MonoBehaviour {
 	}
 
 	void Update () {
-		for (int i = 1; i <= CharSelect.enteredPlayers.Count; i++) {//change to actual palyer objects
 
-		}
 	}
 }
