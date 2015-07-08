@@ -10,78 +10,71 @@ Influences from similar games such as: Towerfall, Duck Game, Worms, Spelunky
 To do:
 ------
 ##Tim:
-*[x]Arrow firing
+[x]Arrow firing
 
-*[x]Arrow direction when shot
+[x]Arrow direction when shot
 
-*[x]Arrow velocity & rotation
+[x]Arrow velocity & rotation
 
-*[x]Arrow collisions
+[x]Arrow collisions
 
-*[x]Custom char select for controllers
+[x]Custom char select for controllers
 
-*[x]Character select custom colours
+[x]Character select custom colours
 
-*[x]Character select class selection
+[x]Character select class selection
 
- 
- 
-*[ ]HP + Death system + end of round/match screen
+[ ]HP + Death system + end of round/match screen
 
-*[ ]Bow power increase with time spent drawn back
+[ ]Bow power increase with time spent drawn back
 
-*[ ]Classes + basic attacks
+[ ]Classes + basic attacks
 
-*[ ]Skills
+[ ]Skills
 
-*[ ]UI
+[ ]UI
 
-*[ ]Better controls
+[ ]Better controls
 
-*[ ]Profiles
-
-
+[ ]Profiles
 
 ##Caoilan:
-*[ ]ragdoll deaths -
+[ ]ragdoll deaths -
 
- *[ ]sharp weapon kill = slice avatar in direction of attack
+[ ]sharp weapon kill = slice avatar in direction of attack
  
- *[ ]blunt weapon kill = knock away
+[ ]blunt weapon kill = knock away
  
- *[ ]bow kill = knock away and stick in wall
+[ ]bow kill = knock away and stick in wall
  
- *[ ]decapitation
+[ ]decapitation
  
- *[ ]arrows stay in for a while
+[ ]arrows stay in for a while
  
- *[ ]spells leave an obvious effect eg fire = singed
+[ ]spells leave an obvious effect eg fire = singed
  
- *[ ]ssbb style hitting screen with limbs
+[ ]ssbb style hitting screen with limbs
  
+[ ]Lighting System
 
-*[ ]Lighting System
+    [ ]day/night cycle
+	 
+    [ ]torches/local lights
+	
+    [ ]lightning + fire (skill particles)
+	 
+	 
+[ ]Cellular automata algorithm generation
 
-     *[ ]day/night cycle
-	 
-     *[ ]torches/local lights
-	 
-     *[ ]lightning + fire (skill particles)
-	 
-	 
-*[ ]cellular automata algorithm generation
-
-*Blood system?
+Blood system?
 
 
 
 ##Other:
+Environmental/weather debuffs
 
-*environmental/weather debuffs
-
- *eg cold weather slows you down if you are out too long in it, warm up at a fire to reset
+ *Eg cold weather slows you down if you are out too long in it, warm up at a fire to reset
  
 
-##level creation
-
+##Level creation
  level editor
