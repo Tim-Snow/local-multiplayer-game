@@ -1,35 +1,29 @@
 using UnityEngine;
 using System;
 
-[RequireComponent (typeof (Controller))]
-public class Player : MonoBehaviour {
-	
+public class Archer : Player {
+	public GameObject 	bow;
+	BowController 		bowScript;
+
 	int numJumpsRem = 0;
 	int numJumps = 2;
-	
-	public float jumpHeight = 2.5f;
-	public float timeToJumpApex = .4f;
-	public float accelerationTimeAirborne = .2f;
-	public float accelerationTimeGrounded = .1f;
-	public float moveSpeed = 6;
-	public float gravity;
-	public int joystickNumber;
-	public bool isHit = false;
-
-	string 		joystickString;
 	float 		jumpVelocity;
-	public Vector3 	velocity;
 	float 		velocityXSmoothing;
+
+	public int 	joystickNumber;
+	string 		joystickString;
 	Controller 	controller;
 
-	void Start() {
+	public void Start(){
+		bowScript = bow.GetComponent<BowController> ();
 		controller = GetComponent<Controller> ();
 		joystickString = joystickNumber.ToString();
+		controller = GetComponent<Controller> ();
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 	}
 
-	void Update() {
+	public void Update(){
 		if (!ButtonPress.paused) {
 			if (controller.collisions.above || controller.collisions.below) {
 				velocity.y = 0;
@@ -37,7 +31,7 @@ public class Player : MonoBehaviour {
 			
 			Vector2 input = new Vector2 (Input.GetAxis ("LeftJoystickX_P" + joystickString), 0);
 			float targetVelocityX = input.x * moveSpeed;
-
+			
 			if(!isHit){
 				if (canJump ()) {
 					if (Input.GetButtonDown ("A_P" + joystickString)) {
@@ -46,15 +40,21 @@ public class Player : MonoBehaviour {
 					}
 				}
 			}
-
+			
 			velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
 			velocity.y += gravity * Time.deltaTime;
-
+			
 			controller.Move (velocity * Time.deltaTime);
+
+			Vector3 arrowInput = new Vector3 (Input.GetAxis ("RightJoystickX_P" + joystickString), -Input.GetAxis ("RightJoystickY_P" + joystickString), 0);
+			if(!isHit){
+				bowScript.joyInput = arrowInput;
+				bowScript.velocity = velocity;
+			}
 		}
 	}
 
-	protected bool canJump(){
+	bool canJump(){
 		bool rtn;
 		
 		if (controller.collisions.below)

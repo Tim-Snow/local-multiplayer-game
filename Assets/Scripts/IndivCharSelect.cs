@@ -9,6 +9,7 @@ public class IndivCharSelect : MonoBehaviour {
 	public Image sliderG;
 	public Image sliderB;
 	public Text classText;
+	public Text profileText;
 	public Image selectionBlock;
 	public Image colourBlock;
 
@@ -17,6 +18,7 @@ public class IndivCharSelect : MonoBehaviour {
 	int 	sliderRVal;
 	int 	sliderGVal;
 	int 	sliderBVal;
+	int 	selectedClass;
 	float 	initialSliderX;
 
 	int 	selectedOption;
@@ -33,6 +35,7 @@ public class IndivCharSelect : MonoBehaviour {
 		sliderRVal 	 = 1;
 		sliderGVal 	 = 1;
 		sliderBVal 	 = 1;
+		selectedClass = 0;
 		selectionBlockSteps = 10;
 
 		sliderR.transform.Translate (sliderMin, 0, 0);
@@ -44,7 +47,7 @@ public class IndivCharSelect : MonoBehaviour {
 		classText.text = "Archer";
 
 		ready 			= false;
-		selectedOption 	= 0;
+		selectedOption 	= 1;
 	}
 
 	void Update () {
@@ -59,43 +62,91 @@ public class IndivCharSelect : MonoBehaviour {
 				if(selectedOption < 4){
 					selectedOption ++;
 					moveSelectionBlock();
-					print ("down");
 				}
 			} else if (input.y <= -0.4f) {
 				if(selectedOption > 0){
 					selectedOption--;
-					print ("up");
 					moveSelectionBlock();
 				}
 			}
 		}
 
-		if (selectedOption >= 0 && selectedOption <= 2)
+		if (selectedOption == 0) {
+			if (Input.GetButtonDown ("A_P" + controllerID.ToString ())){
+				showProfileList ();
+				bool isChoosingProfile = true;
+			}
+		}
+
+		if (selectedOption >= 1 && selectedOption <= 3)
 			isSelectingColour ();
+
+		if (selectedOption == 4 && inputCooldown <= 0f)
+			isChoosingClass ();
+	}
+
+	void showProfileList(){
+
 	}
 
 	void moveSelectionBlock(){
 		inputCooldown = 0.3f;
 		switch(selectedOption){
 			case 0:
-			selectionBlock.transform.position = new Vector3(initialSliderX, sliderR.transform.position.y, sliderR.transform.position.z);
+			selectionBlock.transform.position = new Vector3(initialSliderX, profileText.transform.position.y, profileText.transform.position.z);
 				break;
 			case 1:
-			selectionBlock.transform.position = new Vector3(initialSliderX, sliderG.transform.position.y, sliderG.transform.position.z);
+			selectionBlock.transform.position = new Vector3(initialSliderX, sliderR.transform.position.y, sliderR.transform.position.z);
 				break;
 			case 2:
-			selectionBlock.transform.position = new Vector3(initialSliderX, sliderB.transform.position.y, sliderB.transform.position.z);
+			selectionBlock.transform.position = new Vector3(initialSliderX, sliderG.transform.position.y, sliderG.transform.position.z);
 				break;
 			case 3:
-			classText.text = "NO CHOICE BUT ARCHER";
+			selectionBlock.transform.position = new Vector3(initialSliderX, sliderB.transform.position.y, sliderB.transform.position.z);
+				break;
+			case 4:
+			selectionBlock.transform.position = new Vector3(initialSliderX, classText.transform.position.y, classText.transform.position.z);
 				break;
 			default: break;
 		}
 	}
 
+	void isChoosingClass(){
+		if (input.x >= 0.4f) {
+			if (selectedClass < 3){
+				selectedClass += 1;
+				inputCooldown = 0.3f;
+			}
+		} else if (input.x <= -0.4f) {
+			if(selectedClass > 0){
+				selectedClass -= 1;
+				inputCooldown = 0.3f;
+			}
+		}
+
+		switch (selectedClass) {
+		case 0:
+			classText.text = "Archer";
+			break;
+		case 1:
+			classText.text = "Warrior";
+			break;
+		case 2:
+			classText.text = "Mage";
+			break;
+		case 3: 
+			classText.text = "Tactician";
+			break;
+		default:
+			break;
+		}
+
+		CharSelect.enteredPlayers[controllerID].selectedClass = selectedClass;
+	}
+
 	void isSelectingColour(){
 			switch(selectedOption){
-			case 0:
+			case 1:
 				if (input.x >= 0.4f) {
 					if (sliderRVal <= maxSliderVal){
 						sliderR.transform.Translate (1, 0, 0);
@@ -108,7 +159,7 @@ public class IndivCharSelect : MonoBehaviour {
 					}
 				}
 				break;
-			case 1:
+			case 2:
 			if (input.x >= 0.4f) {
 				if (sliderGVal <= maxSliderVal){
 					sliderG.transform.Translate (1, 0, 0);
@@ -121,7 +172,7 @@ public class IndivCharSelect : MonoBehaviour {
 				}
 			}
 				break;
-			case 2:
+			case 3:
 			if (input.x >= 0.4f) {
 				if (sliderBVal <= maxSliderVal){
 					sliderB.transform.Translate (1, 0, 0);

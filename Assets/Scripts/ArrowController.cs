@@ -36,7 +36,7 @@ public class ArrowController : MonoBehaviour {
 			stop = true;
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 		if (stuckInPlayer)
 			transform.position = stuckObject.transform.position + stuckOffset;
 

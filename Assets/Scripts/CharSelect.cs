@@ -88,7 +88,10 @@ public class CharSelect : MonoBehaviour {
 
 public class enteredPlayerDetails{
 	
-	//classes - 0 = uninit - 1 = archer - 2 = warrior
+	/*case 0: = "Archer";
+	case 1: = "Warrior";
+	case 2: = "Mage";
+	case 3: = "Tactician";*/
 	public bool  isEntered;
 	public int   selectedClass;
 	public Color selectedColor;

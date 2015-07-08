@@ -1,12 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ButtonPress.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LoadoutEditor.cs">
     <Files>
-      <File FileName="Assets\Scripts\IndivCharSelect.cs" Line="78" Column="2" />
-      <File FileName="Assets\Scripts\GameLogic.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CharSelect.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\IndivCharSelect.cs" Line="138" Column="33" />
+      <File FileName="Assets\Scripts\GameLogic.cs" Line="31" Column="41" />
+      <File FileName="Assets\Scripts\CharSelect.cs" Line="39" Column="40" />
       <File FileName="Assets\Scripts\ButtonPress.cs" Line="33" Column="18" />
       <File FileName="Assets\Scripts\BowController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ArrowController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Archer.cs" Line="57" Column="2" />
+      <File FileName="Assets\Scripts\Player.cs" Line="45" Column="9" />
+      <File FileName="Assets\Scripts\MainMenu.cs" Line="27" Column="21" />
+      <File FileName="Assets\Scripts\LoadoutEditor.cs" Line="16" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
