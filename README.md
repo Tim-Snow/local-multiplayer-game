@@ -10,44 +10,78 @@ Influences from similar games such as: Towerfall, Duck Game, Worms, Spelunky
 To do:
 ------
 ##Tim:
-*[x]Arrow firing<\n>
-*[x]Arrow direction when shot<\n>
-*[x]Arrow velocity & rotation<\n>
-*[x]Arrow collisions<\n>
+*[x]Arrow firing
+
+*[x]Arrow direction when shot
+
+*[x]Arrow velocity & rotation
+
+*[x]Arrow collisions
+
 *[x]Custom char select for controllers
-*[x]Character select custom colours<\n>
-*[x]Character select class selection<\n>
- <\n>
-*[ ]HP + Death system + end of round/match screen<\n>
-*[ ]Bow power increase with time spent drawn back<\n>
-*[ ]Classes + basic attacks<\n>
-*[ ]Skills<\n>
-*[ ]UI<\n>
-*[ ]Better controls<\n>
-*[ ]Profiles<\n>
+
+*[x]Character select custom colours
+
+*[x]Character select class selection
+
+ 
+ 
+*[ ]HP + Death system + end of round/match screen
+
+*[ ]Bow power increase with time spent drawn back
+
+*[ ]Classes + basic attacks
+
+*[ ]Skills
+
+*[ ]UI
+
+*[ ]Better controls
+
+*[ ]Profiles
+
+
 
 ##Caoilan:
-*[ ]ragdoll deaths<\n>
- *[ ]sharp weapon kill = slice avatar in direction of attack<\n>
- *[ ]blunt weapon kill = knock away<\n>
- *[ ]bow kill = knock away and stick in wall<\n>
- *[ ]decapitation<\n>
- *[ ]arrows stay in for a while<\n>
- *[ ]spells leave an obvious effect eg fire = singed<\n>
- *[ ]ssbb style hitting screen with limbs<\n>
-<\n>
-*[ ]Lighting System<\n>
-     *[ ]day/night cycle<\n>
-     *[ ]torches/local lights<\n>
-     *[ ]lightning + fire (skill particles)<\n>
-	 <\n>
-*[ ]cellular automata algorithm generation<\n>
-*Blood system?<\n>
-<\n>
-<\n>
+*[ ]ragdoll deaths -
+
+ *[ ]sharp weapon kill = slice avatar in direction of attack
+ 
+ *[ ]blunt weapon kill = knock away
+ 
+ *[ ]bow kill = knock away and stick in wall
+ 
+ *[ ]decapitation
+ 
+ *[ ]arrows stay in for a while
+ 
+ *[ ]spells leave an obvious effect eg fire = singed
+ 
+ *[ ]ssbb style hitting screen with limbs
+ 
+
+*[ ]Lighting System
+
+     *[ ]day/night cycle
+	 
+     *[ ]torches/local lights
+	 
+     *[ ]lightning + fire (skill particles)
+	 
+	 
+*[ ]cellular automata algorithm generation
+
+*Blood system?
+
+
+
 ##Other:
-*environmental/weather debuffs<\n>
- *eg cold weather slows you down if you are out too long in it, warm up at a fire to reset<\n>
-<\n>
+
+*environmental/weather debuffs
+
+ *eg cold weather slows you down if you are out too long in it, warm up at a fire to reset
+ 
+
 ##level creation
+
  level editor
