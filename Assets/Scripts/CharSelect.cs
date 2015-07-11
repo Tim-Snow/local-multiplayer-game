@@ -82,7 +82,8 @@ public class CharSelect : MonoBehaviour {
 		GameObject.Find ("PlayerCreationBox4").GetComponent<IndivCharSelect> ().controllerID = 4;
 
 		//for testing
-		//addPlayer (2, ref p2, ref PanelP2);
+		addPlayer (2, ref p2, ref PanelP2);
+		addPlayer (3, ref p3, ref PanelP3);
 	}
 }
 

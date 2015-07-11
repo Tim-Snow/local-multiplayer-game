@@ -22,29 +22,41 @@ public class Player : MonoBehaviour {
 	float 		velocityXSmoothing;
 	Controller 	controller;
 
-	void Start() {
+	public void Start() {
 		controller = GetComponent<Controller> ();
 		joystickString = joystickNumber.ToString();
 		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+
+		jumpHeight = 2.5f;
+		timeToJumpApex = .4f;
+		accelerationTimeAirborne = .2f;
+		accelerationTimeGrounded = .1f;
+		moveSpeed = 6;
+		isHit = false;
+		numJumpsRem = 0;
+		numJumps = 2;
 	}
 
-	void Update() {
-		if (!ButtonPress.paused) {
+	public void Update() {
+		if (!GameLogic.paused) {
 			if (controller.collisions.above || controller.collisions.below) {
 				velocity.y = 0;
 			}
 			
 			Vector2 input = new Vector2 (Input.GetAxis ("LeftJoystickX_P" + joystickString), 0);
-			float targetVelocityX = input.x * moveSpeed;
 
+			float targetVelocityX;
 			if(!isHit){
+				targetVelocityX = input.x * moveSpeed;
 				if (canJump ()) {
 					if (Input.GetButtonDown ("A_P" + joystickString)) {
 						numJumpsRem--;
 						velocity.y = jumpVelocity;
 					}
 				}
+			} else {
+				targetVelocityX = 0;
 			}
 
 			velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);

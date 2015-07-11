@@ -22,7 +22,6 @@ public class IndivCharSelect : MonoBehaviour {
 	float 	initialSliderX;
 
 	int 	selectedOption;
-	int 	selectionBlockSteps;
 
 	bool 	ready;
 	Vector2 input;
@@ -36,7 +35,6 @@ public class IndivCharSelect : MonoBehaviour {
 		sliderGVal 	 = 1;
 		sliderBVal 	 = 1;
 		selectedClass = 0;
-		selectionBlockSteps = 10;
 
 		sliderR.transform.Translate (sliderMin, 0, 0);
 		sliderG.transform.Translate (sliderMin, 0, 0);
@@ -52,9 +50,7 @@ public class IndivCharSelect : MonoBehaviour {
 
 	void Update () {
 		input = new Vector2 (Input.GetAxis ("LeftJoystickX_P" + controllerID.ToString ()), Input.GetAxis("LeftJoystickY_P" + controllerID.ToString ()));
-
-		print (selectedOption);
-
+	
 		inputCooldown -= Time.deltaTime;
 
 		if (inputCooldown <= 0f) {
@@ -192,8 +188,5 @@ public class IndivCharSelect : MonoBehaviour {
 		Color c = new Color ((float)sliderRVal / 40, (float)sliderGVal / 40, (float)sliderBVal / 40);
 		colourBlock.color = c;
 		CharSelect.enteredPlayers [controllerID].selectedColor = c;
-	}
-
-	void isSelectingClass(){
 	}
 }

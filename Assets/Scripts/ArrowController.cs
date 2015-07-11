@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ArrowController : MonoBehaviour {
@@ -28,6 +29,12 @@ public class ArrowController : MonoBehaviour {
 				stuckObject = coll;
 				stuckOffset = transform.position - stuckObject.transform.position;
 				coll.gameObject.GetComponent<Player>().velocity =  (velocity * 30);
+
+				if(!coll.gameObject.GetComponent<Player>().isHit)
+					GameLogic.playerDied(coll.gameObject.GetComponent<Player>().joystickNumber);
+
+				GameObject.Find("HealthP" + coll.gameObject.GetComponent<Player>().joystickNumber).GetComponent<Image>().color = Color.red;
+				print (coll.gameObject.GetComponent<Player>().joystickNumber);
 				coll.gameObject.GetComponent<Player>().isHit 	= true;
 			}
 		}
